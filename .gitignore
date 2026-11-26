@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Entornos virtuales
+.venv/
+.ven/
+venv/
+env/
+
+# Herramientas y empaquetado
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# Archivos de datos del motor
+*.db
+*.db-journal
+*.wal
+data/*
+!data/.gitkeep
+
+# Configuración local
+.env
+.idea/
+.vscode/
