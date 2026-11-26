@@ -26,9 +26,9 @@
 
 ## Fases de desarrollo
 
-1. ✅ Esqueleto del proyecto y REPL.
-2. ✅ Almacenamiento y páginas.
-3. ✅ Índices BST, AVL y rojo-negro.
+1. Esqueleto del proyecto y REPL.
+2. Almacenamiento y páginas.
+3. Índices BST, AVL y rojo-negro.
 4. Catálogo y `CREATE TABLE`.
 5. B+Tree persistente.
 6. `INSERT` y `SELECT` básicos.
