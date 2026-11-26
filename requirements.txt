@@ -1,0 +1,2 @@
+# Instala NEXONARA-DB en modo editable junto con las dependencias de desarrollo.
+-e .[dev]
