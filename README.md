@@ -19,8 +19,16 @@ python -m pip install -r requirements.txt
 
 ## Uso
 
+El REPL todavía es un esqueleto:
+
 ```powershell
 python -m nexonara
+```
+
+Para ver el almacenamiento y los índices funcionando juntos:
+
+```powershell
+python examples/demo.py
 ```
 
 ## Pruebas
@@ -44,15 +52,16 @@ src/nexonara/   Código del motor
   index/        BST, AVL y rojo-negro
 tests/          Pruebas automatizadas
 benchmarks/     Comparación de índices
+examples/       Demos ejecutables
 docs/           Documentación de arquitectura y alcance
 data/           Archivos de la base de datos (ignorados por Git)
 ```
 
 ## Hoja de ruta
 
-1. ✅ Esqueleto del proyecto y REPL.
-2. ✅ Gestión de almacenamiento y páginas.
-3. ✅ Índices BST, AVL y rojo-negro.
+1. Esqueleto del proyecto y REPL.
+2. Gestión de almacenamiento y páginas.
+3. Índices BST, AVL y rojo-negro.
 4. Catálogo de tablas.
 5. B+Tree persistente.
 6. Operaciones INSERT y SELECT.
