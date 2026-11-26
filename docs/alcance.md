@@ -1,35 +1,29 @@
 # Alcance del proyecto
 
-## Incluido (MVP)
+## Incluido
 
-- Sentencias `CREATE TABLE`, `INSERT`, `SELECT`, `UPDATE` y `DELETE`.
-- Tipos básicos: `INTEGER`, `TEXT`, `BOOLEAN` y `NULL`.
-- Persistencia en archivos locales.
-- Catálogo de tablas y columnas.
-- REPL para ejecutar consultas.
-
-## Fases posteriores
-
-- Índices B+Tree.
-- Filtros `WHERE` con comparaciones y `AND`/`OR`.
-- `ORDER BY` y `LIMIT`.
-- Transacciones y WAL.
-- Recuperación tras fallos.
+- **Modelo relacional con esquema fijo** por tabla (`CREATE TABLE` y `DROP TABLE`).
+- **Tipos de datos básicos:** `INTEGER`, `REAL`, `TEXT`, `BOOLEAN` y `NULL`.
+- **Operaciones CRUD completas:** `INSERT`, `SELECT`, `UPDATE` y `DELETE`.
+- **Consultas y filtros:** búsqueda exacta por clave primaria, búsqueda por rango (`BETWEEN` / `<, <=, >, >=`), filtros `WHERE` (`=`, `!=`, `<`, `<=`, `>`, `>=`, `AND`, `OR`) y recorrido ordenado (`ORDER BY` sobre el índice).
+- **Índice propio en árbol AVL:** implementado desde cero sin librerías externas para la clave primaria (inserción, búsqueda, eliminación, rango y recorrido *inorder* en $O(\log n)$).
+- **Persistencia y recuperación:** almacenamiento paginado binario en disco + metadatos persistentes que reconstruyen el índice AVL al reiniciar el motor.
+- **Atomicidad básica:** reversión en memoria y descarga segura a disco para evitar corrupción o desincronización entre páginas e índice ante errores.
+- **REPL interactivo** y script de carga de datasets de prueba (pequeño y mediano).
 
 ## Fuera de alcance
 
-- SQL completo.
-- Concurrencia multiusuario.
-- Arquitectura cliente-servidor.
-- JOINs complejos, subconsultas, triggers y vistas.
+- SQL completo (subconsultas, vistas, triggers, procedimientos almacenados).
+- Concurrencia multiusuario y bloqueo distribuido.
+- `JOIN` complejos entre múltiples tablas.
+- Arquitectura cliente-servidor en red.
 
 ## Fases de desarrollo
 
-1. Esqueleto del proyecto y REPL.
-2. Almacenamiento y páginas.
-3. Catálogo y `CREATE TABLE`.
-4. `INSERT` y `SELECT` básicos.
-5. Parser SQL propio.
-6. `UPDATE`, `DELETE` y `WHERE`.
-7. Índices.
-8. Transacciones.
+1. Esqueleto del proyecto y REPL base *(Completado)*.
+2. Almacenamiento paginado, `DiskManager` y `BufferPool` LRU *(Completado)*.
+3. Tipos de datos, serialización de tuplas y catálogo persistente.
+4. Índice autobalanceado AVL y reconstrucción desde almacenamiento.
+5. Lexer, Parser y AST para el subconjunto SQL.
+6. Ejecutor CRUD, filtros `WHERE` y atomicidad básica.
+7. Datasets de prueba, pruebas integrales y documentación técnica final.

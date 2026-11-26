@@ -1,0 +1,16 @@
+CREATE TABLE estudiantes (id INTEGER PRIMARY KEY, nombre TEXT, promedio REAL, activo BOOLEAN);
+INSERT INTO estudiantes VALUES (1, 'Ana Gomez', 4.5, true);
+INSERT INTO estudiantes VALUES (2, 'Luis Perez', 3.8, true);
+INSERT INTO estudiantes VALUES (3, 'Carla Ruiz', 4.9, true);
+INSERT INTO estudiantes VALUES (4, 'Diego Torres', 2.9, false);
+INSERT INTO estudiantes VALUES (5, 'Sofia Diaz', 4.2, true);
+INSERT INTO estudiantes VALUES (6, 'Mateo Rojas', 3.5, true);
+INSERT INTO estudiantes VALUES (7, 'Valeria Mora', 4.7, true);
+INSERT INTO estudiantes VALUES (8, 'Andres Silva', 3.1, false);
+INSERT INTO estudiantes VALUES (9, 'Camila Ortiz', 4.0, true);
+INSERT INTO estudiantes VALUES (10, 'Julian Castro', 3.9, true);
+INSERT INTO estudiantes VALUES (11, 'Paula Vega', 4.6, true);
+INSERT INTO estudiantes VALUES (12, 'Daniel Leon', 2.7, false);
+INSERT INTO estudiantes VALUES (13, 'Lucia Pardo', 4.3, true);
+INSERT INTO estudiantes VALUES (14, 'Tomas Rios', 3.6, true);
+INSERT INTO estudiantes VALUES (15, 'Elena Navarro', 4.8, true);
