@@ -29,22 +29,33 @@ python -m nexonara
 python -m pytest
 ```
 
+## Benchmark de índices
+
+```powershell
+python benchmarks/compare_indexes.py
+```
+
+Compara BST, AVL y rojo-negro con datos aleatorios y ordenados.
+
 ## Estructura
 
 ```
 src/nexonara/   Código del motor
+  index/        BST, AVL y rojo-negro
 tests/          Pruebas automatizadas
+benchmarks/     Comparación de índices
 docs/           Documentación de arquitectura y alcance
 data/           Archivos de la base de datos (ignorados por Git)
 ```
 
 ## Hoja de ruta
 
-1. Esqueleto del proyecto y REPL.
-2. Gestión de almacenamiento y páginas.
-3. Catálogo de tablas.
-4. Operaciones INSERT y SELECT.
-5. Parser SQL propio.
-6. UPDATE, DELETE y filtros.
-7. Índices B+Tree.
-8. Transacciones y recuperación.
+1. ✅ Esqueleto del proyecto y REPL.
+2. ✅ Gestión de almacenamiento y páginas.
+3. ✅ Índices BST, AVL y rojo-negro.
+4. Catálogo de tablas.
+5. B+Tree persistente.
+6. Operaciones INSERT y SELECT.
+7. Parser SQL propio.
+8. UPDATE, DELETE y filtros.
+9. Transacciones y recuperación.

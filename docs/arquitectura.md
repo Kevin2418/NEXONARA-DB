@@ -11,8 +11,9 @@ Motor de base de datos relacional, didáctico, implementado en Python, con sopor
 3. **SQL (`sql/`)**: análisis léxico, sintáctico y AST.
 4. **Catálogo (`catalog/`)**: metadatos de tablas, columnas y esquemas.
 5. **Ejecución (`execution/`)**: planificación y ejecución de consultas.
-6. **Almacenamiento (`storage/`)**: páginas, archivos y buffer pool.
-7. **Tipos (`types/`)**: representación de valores y conversiones.
+6. **Índices (`index/`)**: BST, AVL y rojo-negro en memoria; B+Tree persistente.
+7. **Almacenamiento (`storage/`)**: páginas, archivos y buffer pool.
+8. **Tipos (`types/`)**: representación de valores y conversiones.
 
 ## Flujo de una consulta
 
@@ -53,9 +54,25 @@ Cada página mide 4096 bytes y usa un directorio de slots:
 - Las páginas modificadas se marcan como sucias y se escriben al expulsarlas,
   al hacer `flush` o al cerrar el buffer.
 
+## Índices
+
+La interfaz `Index` asocia claves con RIDs (`page_id`, `slot_id`) y define
+`insert`, `search`, `delete`, `range_scan`, `height` y `validate`.
+
+- `BSTIndex`: árbol binario de búsqueda sin balanceo; sirve como línea base y
+  se degenera con inserciones ordenadas.
+- `AVLIndex`: mantiene la diferencia de altura entre subárboles como máximo 1.
+  Prioriza búsquedas rápidas y usa rotaciones tras cada cambio.
+- `RedBlackIndex`: mantiene altura negra uniforme y raíz negra. Es menos
+  estricto que AVL y suele requerir menos rotaciones en inserciones y borrados.
+- `BPlusTree`: pendiente; será el índice persistente sobre `Page` y
+  `BufferPool`, con valores solo en las hojas y hojas enlazadas para rangos.
+
+`validate()` comprueba las invariantes de cada árbol y se usa en las pruebas.
+
 ## Componentes futuros
 
-- `index/`: índice B+Tree para búsquedas eficientes.
+- `index/bplustree.py`: índice persistente en disco.
 - `transactions/`: WAL y control de transacciones.
 
 ## Decisiones iniciales

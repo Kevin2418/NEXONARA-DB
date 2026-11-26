@@ -6,11 +6,12 @@
 - Tipos básicos: `INTEGER`, `TEXT`, `BOOLEAN` y `NULL`.
 - Persistencia en archivos locales.
 - Catálogo de tablas y columnas.
+- Índices en memoria BST, AVL y rojo-negro.
 - REPL para ejecutar consultas.
 
 ## Fases posteriores
 
-- Índices B+Tree.
+- Índice B+Tree persistente.
 - Filtros `WHERE` con comparaciones y `AND`/`OR`.
 - `ORDER BY` y `LIMIT`.
 - Transacciones y WAL.
@@ -25,11 +26,12 @@
 
 ## Fases de desarrollo
 
-1. Esqueleto del proyecto y REPL.
-2. Almacenamiento y páginas.
-3. Catálogo y `CREATE TABLE`.
-4. `INSERT` y `SELECT` básicos.
-5. Parser SQL propio.
-6. `UPDATE`, `DELETE` y `WHERE`.
-7. Índices.
-8. Transacciones.
+1. ✅ Esqueleto del proyecto y REPL.
+2. ✅ Almacenamiento y páginas.
+3. ✅ Índices BST, AVL y rojo-negro.
+4. Catálogo y `CREATE TABLE`.
+5. B+Tree persistente.
+6. `INSERT` y `SELECT` básicos.
+7. Parser SQL propio.
+8. `UPDATE`, `DELETE` y `WHERE`.
+9. Transacciones.
